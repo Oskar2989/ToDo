@@ -30,11 +30,24 @@
                             <outlet property="delegate" destination="bsQ-a4-E15" id="NTL-xx-Iv1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="ToDo" id="ho4-q2-PCx"/>
+                    <toolbarItems>
+                        <barButtonItem systemItem="add" id="gUI-v4-fQz">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="ToDo" id="ho4-q2-PCx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="I4P-2F-By5">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addBtnPressed:" destination="bsQ-a4-E15" id="6Qw-Js-A3b"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlW-Ne-cDd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1600.0000000000002" y="87.723214285714278"/>
+            <point key="canvasLocation" x="1380" y="80"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZVf-jW-DgF">
@@ -44,7 +57,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tuk-LE-PqQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.1529411765" green="0.23529411759999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="0.55347164735099341" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
