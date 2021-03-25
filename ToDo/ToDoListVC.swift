@@ -11,10 +11,16 @@ class ToDoListVC: UITableViewController {
     
     
     var itemArray = ["Find Mike", "Buy Milk", "Drive to the store"]
+    
+    let defualts = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
+        if let items = defualts.array(forKey:  "ToDoListArray") as? [String] {
+        
+            itemArray = items
+        }
+        
+        
     }
     
 //    Mark- TablView DataSources Method
@@ -37,6 +43,13 @@ class ToDoListVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+       
+        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
+            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+        } else {
+            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
         
         
@@ -57,6 +70,7 @@ class ToDoListVC: UITableViewController {
         let action = UIAlertAction(title: "Add Item", style: .default) { [self] (action) in
             
             itemArray.append(textfield.text!)
+            self.defualts.set(self.itemArray, forKey: "ToDoListArray")
             self.tableView.reloadData()
             
             
